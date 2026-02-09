@@ -68,9 +68,7 @@ export default function Page() {
 
   const handleCopyLink = async () => {
     try {
-      const link = `${window.location.origin}/room/${roomId}?name=PLAYER_NAME`;
-
-      await navigator.clipboard.writeText(link);
+      await navigator.clipboard.writeText(roomId);
 
       toast.success("Room link copied 📋");
     } catch (err) {

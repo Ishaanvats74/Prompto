@@ -4,11 +4,10 @@ let socket: Socket | null = null;
 
 export const getSocket = (): Socket => {
   if (!socket) {
-    socket = io("https://prompto.onrender.com", {
+    socket = io("http://localhost:3001", {
       withCredentials: true,
-      transports: ["websocket"],
+      // transports: ["websocket"],
     });
-    // remove autoConnect
   }
   return socket;
 };

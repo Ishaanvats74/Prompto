@@ -6,10 +6,6 @@ const http = require("http");
 const cors = require("cors");
 var similarity = require("compute-cosine-similarity");
 const app = express();
-const socket = io("https://prompto.onrender.com", {
-  withCredentials: true,
-  transports: ["websocket"], 
-});
 
 const allowedOrigins = [
   "http://localhost:3000",

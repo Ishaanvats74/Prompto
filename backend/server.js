@@ -7,8 +7,7 @@ const cors = require("cors");
 var similarity = require("compute-cosine-similarity");
 
 const app = express();
-const server = http.createServer(app);
-import { io } from "socket.io-client";
+const { Server } = require("socket.io");
 
 const socket = io("https://prompto.onrender.com", {
   withCredentials: true,

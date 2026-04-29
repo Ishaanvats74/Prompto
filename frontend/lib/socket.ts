@@ -6,7 +6,7 @@ export const getSocket = (): Socket => {
   if (!socket) {
     socket = io("https://prompto.onrender.com", {
       withCredentials: true,
-      // transports: ["websocket"],
+      transports: ["websocket"],
     });
   }
   return socket;

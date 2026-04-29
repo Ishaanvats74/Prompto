@@ -6,7 +6,7 @@ const http = require("http");
 const cors = require("cors");
 var similarity = require("compute-cosine-similarity");
 const app = express();
-
+const server = http.createServer(app);
 const allowedOrigins = [
   "http://localhost:3000",
   "https://prompto-beta.vercel.app",

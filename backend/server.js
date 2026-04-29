@@ -5,10 +5,7 @@ const express = require("express");
 const http = require("http");
 const cors = require("cors");
 var similarity = require("compute-cosine-similarity");
-
 const app = express();
-const { Server } = require("socket.io");
-
 const socket = io("https://prompto.onrender.com", {
   withCredentials: true,
   transports: ["websocket"], 

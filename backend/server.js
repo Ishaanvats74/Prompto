@@ -7,19 +7,29 @@ const cors = require("cors");
 var similarity = require("compute-cosine-similarity");
 
 const app = express();
-
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://prompto-beta.vercel.app/", "*"],
-    credentials: true,
-  }),
-);
-
 const server = http.createServer(app);
+import { io } from "socket.io-client";
+
+const socket = io("https://prompto.onrender.com", {
+  withCredentials: true,
+  transports: ["websocket"], 
+});
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://prompto-beta.vercel.app",
+  "https://prompto-git-main-ishaanvats74s-projects.vercel.app",
+  "https://prompto-mp3tzjdck-ishaanvats74s-projects.vercel.app"
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:3000", "https://prompto-beta.vercel.app/", "*"],
+    origin: allowedOrigins,
     methods: ["GET", "POST"],
     credentials: true,
   },
